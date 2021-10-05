@@ -1,25 +1,43 @@
 import logo from './logo.svg';
 import './App.css';
+import initWallet from './helpers/arweaveWallet'
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+export default class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={balance:'asd'};
+  }
+
+  render() {
+    console.log("Inside render ")
+    return(
+      <div>
+        sdv
+        <button>as{this.state.balance}</button>
+        
+      </div>
+    )
+
+  }
+
+  onClick = async() => {
+    let data=await initWallet();
+    this.setState({balance:data});
+    console.log("Value of balance:---"+this.state.balance)
+
+
+
+  }
+
+  componentDidMount() {
+    console.log("Inside componentDidUpdate ")
+    this.setState({balance:325});
+    this.onClick();
+
+  }
+
+  
 }
-
-export default App;
