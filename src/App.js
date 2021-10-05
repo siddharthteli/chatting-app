@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import initWallet from './helpers/arweaveWallet'
+import checkBalance from './helpers/arweaveWallet'
 import React from 'react';
 
 
@@ -24,7 +24,7 @@ export default class App extends React.Component {
   }
 
   onClick = async() => {
-    let data=await initWallet();
+    let data=await checkBalance();
     this.setState({balance:data});
     console.log("Value of balance:---"+this.state.balance)
 
