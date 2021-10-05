@@ -12,7 +12,7 @@ let wallet=new Wallet(solletUrl,cluster);
 
 
 export async function initWallet() : Promise<[Connection, Wallet]> {
-    await wallet.connect;
+    await wallet.connect();
 
     return[connection,wallet]
     
